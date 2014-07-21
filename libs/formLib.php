@@ -1,9 +1,9 @@
 <?php
 //============================================================================
 // Name        : formLib.php
-// Author      : Patrick Reipschläger
-// Version     : 1.0
-// Date        : 08-2013
+// Authors     : Patrick Reipschläger, Lucas Woltmann
+// Version     : 1.1
+// Date        : 07-2014
 // Description : Provides several functions for displaying form elements
 //               for the ESE evaluation for students and tutors.
 //============================================================================
@@ -211,6 +211,11 @@
 			CreateQuestion($entry[1], $id, $value);
 		else if ($type == Q_COMMENT)
 			CreateCommentBox($entry[1], $id, $value);
+		else if ($type == Q_DROPDOWN)
+		{
+			$value = $formData;
+			CreateDropDownMenu($entry[1], $id, $value);
+		}
 	}
 	/**
 	 * Echos a range of new divisions with switching row styles for all questions that
@@ -257,6 +262,30 @@
 		else if ($msgType == MSG_INFO)
 			echo " panel-info";
 		echo "\"><div class=\"panel-heading\"><h3 class=\"panel-title\">" . $header . "</h3></div>" . $text . "</div>";
+		echo "	</div>\n";
+		echo "</div>\n";
+	}
+
+	/**
+	 * Echos a new division with a labelled text box and switching row styles.
+	 *
+	 * @param string $label The label that should be displayed for the dropdown menu.
+	 * @param string $id The unique id that is used to identify the dropdownmenu.
+	 * @param string $value The options that should be displayed within the dropdown menu.
+	 * 
+	 */
+	function CreateDropDownMenu($label, $id, $value)
+	{
+		CreateRowHeader();
+		echo "	<div class=\"col-sm-8\">\n";
+		echo "		<p class=\"lead\">" . $label . "</p>\n";
+		echo "	</div>\n";
+		echo "	<div class=\"col-sm-4\">\n";
+		echo "		<select class=\"form-control\" id=\"". $id . "\" name=\"". $id ."\" required>\n";
+		foreach ($value as $key => $entry) {
+			echo "			<option value=\"".$entry."\">".$entry."</option>\n";
+		}
+		echo "		</select>\n";
 		echo "	</div>\n";
 		echo "</div>\n";
 	}

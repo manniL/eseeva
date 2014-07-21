@@ -252,7 +252,7 @@
 				continue;
 			// get the type of the element with the same id as the form element from the questionnaire
 			$type = $questionnaire[$id][0];
-			// check if the element is a question on continue with the next one if that is not hte case
+			// check if the element is a question on continue with the next one if that is not the case
 			if ($type != "Question")
 				continue;
 			// if there is not field for the current element in the question dsta array, create a new

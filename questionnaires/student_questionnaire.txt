@@ -16,6 +16,7 @@
 #						Takes the question as a parameter.
 #		Comment		=	A box for comments (It is assumed there is only one such box)
 #						Takes the label of the comment box as a parameter.
+#       DropDown    =   Dropdown menu for the tutor
 #
 #	If fundamental changes are made (other than changing strings or adding/removing questions)
 #	The files 'student_questionnaire.php' and 'student_analysis' should be checked for validity,
@@ -23,14 +24,14 @@
 #------------------------------------------------
 
 # -- Header ---
-headline; Headline; ESE 2013
+headline; Headline; ESE 2014
 
 # -- personal Code --
 # this is important and should stay so the student can identify himself to the system and receive his cup later on
 code; TextBox; Persönlicher Code:
 
 # -- Name of the tutor --
-tutorName; TextBox; Wer war dein Namenspatron? (Nachname)
+tutorName; DropDown; Wer war dein Namenspatron?;
 
 # -- Legend --
 legend; Legend;

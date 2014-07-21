@@ -17,8 +17,9 @@
 	$error = 0;
 	// Determines if a message box is shown, and what type of message box is shown
 	$keyState = "";
-	// load the questionnaire data
+	// load the questionnaire and patrons data
 	$questionnaire = ReadQuestionnaireFile(STUDENT_QUESTIONNAIRE);
+    $patrons = ReadPatronsFile(PATRONS);
 	// if the variable is set, the form has been posted to itself and can be validated
 	if (isset($_POST["submit"]))
 	{
@@ -69,11 +70,11 @@
 				<?php
 					CreateQuestionnaireElement("headline", $questionnaire, $_POST);
 					if ($error)
-						CreateMessageBox(MSG_DANGER, "Achtung:", "Deine Evaluation konnte aufgrund eines internen Fehlersl eider nicht erfolgreich bearbeitet werden.<br/>Bitte versuch es später nocheinmal oder wende dich an einen der Verantwortlichen.");
+						CreateMessageBox(MSG_DANGER, "Achtung:", "Deine Evaluation konnte aufgrund eines internen Fehlers leider nicht erfolgreich bearbeitet werden.<br/>Bitte versuch es später nocheinmal oder wende dich an einen der Verantwortlichen.");
 					else
 						CreateKeyMessageBox($keyState);
 					CreateQuestionnaireElement("code", $questionnaire, $_POST);
-					CreateQuestionnaireElement("tutorName", $questionnaire, $_POST);
+					CreateQuestionnaireElement("tutorName", $questionnaire, $patrons);
 					CreateQuestionnaireElement("legend", $questionnaire, $_POST);
 					CreateAllQuestionElements($questionnaire, $_POST);
 					CreateQuestionnaireElement("comment", $questionnaire, $_POST);

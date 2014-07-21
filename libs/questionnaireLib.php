@@ -1,15 +1,16 @@
 <?php
 //============================================================================
 // Name        : questionnaireLib.php
-// Author      : Patrick Reipschläger
-// Version     : 1.0
-// Date        : 8-2013
+// Authors     : Patrick Reipschläger, Lucas Woltmann
+// Version     : 1.1
+// Date        : 07-2014
 // Description : Provides functions for handling questionnaire text files
 //               for the ESE questionnaire for students and tutors.
 //============================================================================
 
 	define ("STUDENT_QUESTIONNAIRE", "questionnaires/student_questionnaire.txt");
 	define ("TUTOR_QUESTIONNAIRE", "questionnaires/tutor_questionnaire.txt");
+	define ("PATRONS", "questionnaires/namenspatronen.txt");
 	// Possible Questionnaire Element Types
 	// Should be used by all scripts when referencing them
 	/**
@@ -41,6 +42,12 @@
 	 * - Label for the CommentBox
 	 */
 	define ("Q_COMMENT", "Comment");
+	/**
+	 * DropDown Element
+	 * Parameter:
+	 * - Label for the DropDownMenu
+	 */
+	define ("Q_DROPDOWN", "DropDown");
 
 	/**
 	 * Reads the questionnaire file with the specified name and returns an array
@@ -72,6 +79,22 @@
 					array_push($entry, trim($tmp[$j]));
 				$data[trim($tmp[0])] = $entry;
 			}
+		return $data;
+	}
+
+	function ReadPatronsFile($fileName)
+	{
+		if (!file_exists($fileName))
+			return null;
+		$handle = fopen($fileName, 'r');
+		if (!$handle)
+			return null;
+		$rawData =  fread($handle, filesize($fileName));
+		$lines = explode("\n", $rawData);
+		$data = array();
+		for ($i = 0; $i < count($lines); $i++)
+            $data[trim($lines[$i])] = trim($lines[$i]);
+
 		return $data;
 	}
 ?>

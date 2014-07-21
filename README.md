@@ -32,7 +32,7 @@ The people responsible for the ESE create a new list of keys by using the page *
 
 ### 5. Analyse the results of the evaluation questionnaires                      
 
-//TODO                                                                        
+Just go to the *analysis.php* site to see the results.                                                                      
 
 ### 6. Files                                                                     
 
