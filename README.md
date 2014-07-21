@@ -21,7 +21,8 @@ The people responsible for the ESE create a new list of keys by using the page *
 1. First a new set of keys must be created by using the *keyTable.php* page. Select the amount of keys to be high enough to cover all students and tutors.                                                                   
 2. Still in *keyTable.php* set the state of all keys that will be issued to students to *issued*.                                       
 3. Open the file *questionnaires/student_questionnaire.txt* and change the list of questions for students to your liking. Do the same for the tutor questions in the file *questionnaires/tutor_questionnair.txt*. You may also want to change the headline and title within the same files. 
-4. If you want to keep the old log data, you may also want to change the of the log files for students and tutors in the file *libs/loggingLib.php* by changing the constants STUDENTLOGFILE and TUTORLOGFILE to the desired values. Otherwise just delete the previous log files so that blank ones will be created once the first questionnaire has been filled in.                                       
+4. Open the fiel *questionnaires/namenspatronen.txt* and update the list of patrons.
+5. If you want to keep the old log data, you may also want to change the of the log files for students and tutors in the file *libs/loggingLib.php* by changing the constants STUDENTLOGFILE and TUTORLOGFILE to the desired values. Otherwise just delete the previous log files so that blank ones will be created once the first questionnaire has been filled in.                                       
 
 ### 4. Checking if a student is authorised to acquire his cup                    
 
