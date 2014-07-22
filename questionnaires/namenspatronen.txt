@@ -1,3 +1,4 @@
 Peter Chen
 Richard Stallman
 Konrad Zuse
+John von Neuman
