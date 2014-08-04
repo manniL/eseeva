@@ -78,7 +78,8 @@
 						for ($i = 1; $i < 7; $i++)
             {
 							echo "      <div class=\"col-2\"><p class=\"lead center\">" . $question[$i] . "</p></div>\n";
-              $color = ImageColorAllocate($img, 0, 150*($question[$i]/$maxX) + 50, 0);
+			  $green = 150*($question[$i]/$maxX) + 40;
+              $color = ImageColorAllocate($img, 0.57 * $green, $green, 0.45 * $green);
               DrawBar($img, $question[$i], $maxX, $i+1, $maxY,  $question[$i], $color);
             }
             
@@ -138,7 +139,8 @@
 						for ($i = 0; $i < 6; $i++)
             {
 							echo "      <div class=\"col-2\"><p class=\"lead center\">" . $tutor[$i] . "</p></div>\n";
-              $color = ImageColorAllocate($img, 0, 150*($tutor[$i]/$maxX) + 50, 0);
+			  $green = 150*($tutor[$i]/$maxX) + 40;
+              $color = ImageColorAllocate($img, 0.54 * $green, $green, 0.45 * $green);
               DrawBar($img, $tutor[$i], $maxX,  $i+2, $maxY,  $tutor[$i], $color);
             }
             
