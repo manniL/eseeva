@@ -1,4 +1,17 @@
-Peter Chen
-Richard Stallman
+Alan Turing
+Edsger W. Dijkstra
+Kurt Gödel
 Konrad Zuse
-John von Neuman
+Donald E. Knuth
+John von Neumann
+Tim Berners-Lee
+Ada Lovelace
+Peter Chen
+Richard M. Stallman
+Linus Torvalds
+Noam Chomsky
+Christiane Floyd
+Stephen A. Cook
+Ken Thompson
+Marc Andreesen
+Master Inf/MInf

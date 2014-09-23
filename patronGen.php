@@ -22,22 +22,22 @@
 	$keyData = ReadKeyFile($keyFile);
 	// the group names and rooms for Monday and their start times for Tuesday
 	$patrons = array(
-		array("Alan Turing", "INF/E001", "09:00"),
-		array("Edsger W. Dijkstra", "INF/E005", "09:10"),
-		array("Kurt Gödel", "INF/E006", "09:20"),
-		array("Konrad Zuse", "INF/E007", "09:30"),
-		array("Donald E. Knuth", "INF/E008", "09:40"),
-		array("John von Neumann", "INF/E009", "09:50"),
-		array("Tim Berners-Lee", "INF/E010", "10:00"),
-		array("Ada Lovelace", "BAR/213", "10:10"),
-		array("Peter Chen", "BAR/106", "10:20"),
-		array("Richard M. Stallman", "BAR/205", "10:30"),
-		array("Linus Torvalds", "GÖR/127", "10:40"),
-		array("Noam Chomsky", "SCH/A101", "10:50"),
-		array("Christiane Floyd", "SCH/A107", "11:00"),
-		array("Stephen A. Cook", "SCH/216B", "11:10"),
-		array("Ken Thompson", "SCH/A185", "11:20"),
-		array("Marc Andreesen", "SCH/A252", "11:30"),
+		array("Alan Turing", "INF/005", "09:00"),
+		array("Edsger W. Dijkstra", "INF/E006", "09:10"),
+		array("Kurt Gödel", "INF/E007", "09:20"),
+		array("Konrad Zuse", "INF/E008", "09:30"),
+		array("Donald E. Knuth", "INF/E009", "09:40"),
+		array("John von Neumann", "INF/E010", "09:50"),
+		array("Tim Berners-Lee", "SCH/A01", "10:00"),
+		array("Ada Lovelace", "SCH/A315", "10:10"),
+		array("Peter Chen", "SCH/A215", "10:20"),
+		array("Richard M. Stallman", "SCH/A117", "10:30"),
+		array("Linus Torvalds", "SCH/A118", "10:40"),
+		array("Noam Chomsky", "SCH/A316", "10:50"),
+		array("Christiane Floyd", "SCH/A216", "11:00"),
+		array("Stephen A. Cook", "BAR/106", "11:10"),
+		array("Ken Thompson", "JAN/27", "11:20"),
+		array("Marc Andreesen", "BER/105", "11:30"),
 		// we need slightly more Master tickets
 		array("Master Inf/MInf", "INF/E023", ""),
 		array("Master Inf/MInf", "INF/E023", "")
@@ -66,7 +66,7 @@ for ($i = 0; $i < count($keyData); $i++)
 		echo "</div>";
 		echo "			<code>".$keyData[$i][0]."</code>";
 		echo "		</div><div class=\"ticketimg\"><img src=\"css/ese-logo.png\"/></div>";
-		echo "			<div class=\"evalink\">ESE-Evaluation unter https://ese.ifsr.de/2013/eva/</div>";
+		echo "			<div class=\"evalink\">ESE-Evaluation unter https://ese.ifsr.de/2014/eva/</div>";
 		echo "</div>";
 	}
 ?>
