@@ -6,7 +6,7 @@ Donald E. Knuth
 John von Neumann
 Tim Berners-Lee
 Ada Lovelace
-Peter Chen
+Grace Hopper
 Richard M. Stallman
 Linus Torvalds
 Noam Chomsky

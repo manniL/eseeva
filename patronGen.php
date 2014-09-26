@@ -30,7 +30,7 @@
 		array("John von Neumann", "INF/E010", "09:50"),
 		array("Tim Berners-Lee", "SCH/A01", "10:00"),
 		array("Ada Lovelace", "SCH/A315", "10:10"),
-		array("Peter Chen", "SCH/A215", "10:20"),
+		array("Grace Hopper", "SCH/A215", "10:20"),
 		array("Richard M. Stallman", "SCH/A117", "10:30"),
 		array("Linus Torvalds", "SCH/A118", "10:40"),
 		array("Noam Chomsky", "SCH/A316", "10:50"),
