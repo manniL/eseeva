@@ -10,7 +10,7 @@
 
 	define ("STUDENT_QUESTIONNAIRE", "questionnaires/student_questionnaire.txt");
 	define ("TUTOR_QUESTIONNAIRE", "questionnaires/tutor_questionnaire.txt");
-	define ("PATRONS", "questionnaires/namenspatronen.txt");
+	define ("PATRONS", "questionnaires/patrons.txt");
 	// Possible Questionnaire Element Types
 	// Should be used by all scripts when referencing them
 	/**
