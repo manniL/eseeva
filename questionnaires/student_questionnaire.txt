@@ -40,7 +40,7 @@ legend; Legend;
 tutorRating; Question; Wie fandest du das Tutorium?
 meetingRating; Question; Wie hat dir der Kennenlernabend gefallen?
 meetingSeminar; Question; Wie war das Seminargruppentreffen?
-#speechMasterDiplom; Question; Wie war der Vortrag zum Master/Diplom?
+speechCourseGuidance; Question; Wie war der Vortrag zur Studienberatung und -organisation?
 #speechMicrosoft; Question; Wie war der Microsoft-(MSDNAA)-Vortrag?
 paperChaseRating; Question; Wie fandest du die Schnitzeljagd?
 clubbingRating; Question; Wie hat dir die Clubwanderung gefallen?
@@ -49,6 +49,7 @@ speechAbroadSemester; Question; Wie war der Vortrag zum Auslandsstudium?
 speechTudias; Question; Wie war der Vortrag von TUDIAS?
 eseGameRating; Question; Wie hat dir das ESE-Spiel gefallen?
 eseGameEvening; Question; Wie fandest du den Spieleabend?
+eseBreakfast; Question; Wie gefiel dir das Frühstück?
 #movieNightRating; Question; Wie hat dir der Kino-Abend gefallen?
 profIntroRating; Question; Wie war die Professorenvorstellung?
 #bowlingNightRating; Question; Wie war der Billiard/Bowling-Abend für dich?

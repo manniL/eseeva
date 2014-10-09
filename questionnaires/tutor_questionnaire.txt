@@ -34,7 +34,7 @@ legend; Legend;
 
 # -- Begin Questions --
 planingRating; Question; Wie fandest du die Planung der ESE?
-tutoriumPreparation; Question; Zufriedenheit mit Tutorien und deren Vorbereitung
+tutoriumPreparation; Question; Zufriedenheit mit den Tutorien und deren Vorbereitung
 paperChaseRating; Question; Wie fandest du die Schnitzeljagd?
 eseGameRating; Question; Wie ist das ESE-Spiel gelaufen?
 inetPresenceRating; Question; Beurteilung des Internet-Auftritts
