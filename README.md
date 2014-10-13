@@ -33,11 +33,12 @@ The people responsible for the ESE create a new list of keys by using the page *
 
 ### 5. Analyse the results of the evaluation questionnaires                      
 
-Just go to the *analysis.php* site to see the results.                                                                      
+Just go to the *analysis.php* site to see the results. Go to *analysisTut.php* to find out the results of the evaluation of the tutors.                                 
 
 ### 6. Files                                                                     
 
-* **analysis.php**: Analysis the provided log file and displays its results.                 
+* **analysis.php**: Analysis the provided log file and displays its results.
+* **analysisTut.php**: Analysis the provided tutor log file and displays its results.            
 * **keyControlPanel.php**: Used to access the key file and check or change the state of a key. Should be used by everyone who is authorized to hand out ESE cups.
 * **keyTable.php**: Graphical presentation of the key file, can be used to generate new keys or change the state of the existing one. Should only be used by a small number of responsible people. 
 * **student_questionnaire.php**: The questionnaire page for students.  
