@@ -1,23 +1,23 @@
 <?php
 //============================================================================
-// Name        : analysis.php
+// Name        : analysisTut.php
 // Author      : Patrick Reipschläger, Lucas Woltmann
 // Version     : 0.5
 // Date        : 08-2013
-// Description : Analysis a ESE Evaluation log file. The file that is analysed
+// Description : Analysis a ESE Evaluation tutor log file. The file that is analysed
 //               may be passed as parameter with the URL.
 //============================================================================
 	include_once 'libs/formLib.php';
 	include_once 'libs/questionnaireLib.php';
 	include_once 'libs/loggingLib.php';
-  include_once 'libs/chartLib.php';
+    include_once 'libs/chartLib.php';
 	
 	// variables for the log data
 	$questionData;
 	$tutorData;
 	$commentData;
 	// Default log file is the student log file defined in 'loggingLib.php'
-	$logFile = STUDENTLOGFILE;
+	$logFile = TUTORLOGFILE;
 	// if a logFile parameter has been passed in the URL, than that value will
 	// be used instead of the default value (with the added folder name)
 	if (isset($_GET["logFile"]))
@@ -31,14 +31,14 @@
 <html>
 	<head>
     <meta charset="utf-8">
-		<title>ESE Evaluation Analyse</title>
+		<title>ESE-Tutor Evaluation Analyse</title>
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 	<body>
 		<div class="container">
 			<?php
-				CreateHeadline("ESE Evaluation - Data Analysis");
+				CreateHeadline("ESE Evaluation - Tutor Data Analysis");
 				// if there was any question Data in the log file, display it 
             
 				if (count($questionData) > 0)
