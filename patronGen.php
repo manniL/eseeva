@@ -57,18 +57,21 @@
 for ($i = 0; $i < count($keyData); $i++)
 	{
 		$pno = $i%(count($patrons));
-		echo "		<div class=\"ticket\"><div class=\"patron\">".$patrons[$pno][0]."</div><div class=\"tickettext\">";
-		// echo "			<div class=\"patron\">".$patrons[$pno][0]."</div>";
-		echo "			<div class=\"ticketimg\"><img src=\"css/ese-logo.png\"/></div>";
-		echo "			<div class=\"room\">Tutorium in <br><strong>".$patrons[$pno][1]."</strong></div>";
-		echo "			<div class=\"time\">";
-		// don't display start date if there is none
-		echo ($patrons[$pno][2]=="")?"&nbsp;":"Einschreibestart Dienstag <strong>".$patrons[$pno][2]." Uhr</strong>";
-		echo "</div>";
-		// echo "			<code>".$keyData[$i][0]."</code>";
-		echo "		</div>";
-		// echo "			<div class=\"evalink\">ESE-Evaluation unter https://ese.ifsr.de/2015/eva/</div>";
-		echo "</div>";
+		?>
+			<div class="ticket">
+				<div class="patron">".$patrons[$pno][0]."</div>
+				<div class="tickettext">
+					<div class="ticketimg"><img src="css/ese-logo.png"/></div>
+					<div class="room">Tutorium in <br><strong>".$patrons[$pno][1]."</strong></div>
+					<div class="time">
+						<?php
+							// don't display start date if there is none (Master case)
+							echo ($patrons[$pno][2]=="") ? "&nbsp;" : "Einschreibestart Dienstag <strong>".$patrons[$pno][2]." Uhr</strong>";
+						?>
+					</div>
+				</div>
+			</div>
+		<?php
 	}
 ?>
 		</div>
