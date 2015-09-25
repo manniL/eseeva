@@ -1,0 +1,58 @@
+\documentclass{article}
+\usepackage[a4paper,margin=.6cm,landscape]{geometry}
+
+\usepackage{intcalc}
+\usepackage{ifthen}
+\usepackage{csvsimple}
+\usepackage{graphicx}
+\usepackage{url}
+
+\usepackage{fontspec}
+\setmainfont{PT Sans}
+\newfontfamily\headfont{Haettenschweiler}
+
+% lol, hacks
+%\usepackage{atbegshi}% http://ctan.org/pkg/atbegshi
+%\AtBeginDocument{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
+
+\newcommand{\bm}[1]{%
+	\begin{minipage}[t][\textheight]{.16\textwidth}%
+		\includegraphics[width=\textwidth]{css/tasse.png}\\[-.5cm]
+		\begin{center}
+			\headfont\Huge
+			Hol' dir\\deine\\ ESE-Tasse!
+		\end{center}
+		\vspace*{.5cm}
+		
+		Beantworte uns einfach kurz ein paar Fragen über die ESE unter:
+		\begin{center}
+			\url{ese.ifsr.de/2015/eva/}
+		\end{center}
+		Dort kannst du deinen Code eingeben:
+		\begin{center}
+			\texttt{#1}
+		\end{center}
+		Wenn du die Fragen ausgefüllt hast, komm' einfach in unser Büro im APB/E017 und du kannst deine Tasse sofort mitnehmen.\\
+		Deine ehrliche Meinung hilft uns, die ESE zu verbessern - und vielleicht magst du ja nächstes Jahr auch selbst mithelfen?\\
+		
+		Dein\\
+		{
+			\mbox{} \hfill Fachschaftsrat Informatik\\
+			\mbox{} \hfill \url{ifsr.de}
+		}
+	\end{minipage}%
+	\hspace*{.035\textwidth}
+	\ifthenelse{\equal{\intcalcMod{\thecsvrow}{5}}{4}}{
+	
+	}{}
+	\stepcounter{csvrow}
+}
+
+\begin{document}
+
+\csvreader
+	[separator=semicolon]%
+	{keys/Keys.csv}{1=\nr,2=\key,3=\status}%
+	{\bm{\key}}% We could even filter for status=issued here :O
+
+\end{document}
