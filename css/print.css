@@ -37,6 +37,10 @@ body {
 	padding: 0px;
 }
 
+img.tutorticketimg {
+	height: 3cm;
+}
+
 .patron {
 	font-size: 26pt;
 	font-family:Haettenschweiler;

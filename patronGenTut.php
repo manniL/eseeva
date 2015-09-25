@@ -34,15 +34,19 @@
 <?php
 for ($i = 0; $i < count($keyData); $i++) {
 	if($keyData[$i][1] == KEYSTATE_UNISSUED) {
-		$pno = $i%(count($patrons));
-		echo "		<div class=\"ticket\"><div class=\"tickettext\">";
-		echo "			<div class=\"patron\">Tutor</div>";
-		echo "			<div class=\"room\">&nbsp;</div>";
-		echo "			<div class=\"time\">&nbsp;</div>";
-		echo "			<code>".$keyData[$i][0]."</code>";
-		echo "		</div><div class=\"ticketimg\"><img src=\"css/ese-logo.png\"/></div>";
-		echo "			<div class=\"evalink\">Tutoren-Eva unter https://ese.ifsr.de/2014/eva/tut</div>";
-		echo "</div>";
+		?>
+			<div class="ticket">
+				<div class="ticketimg"><img class="tutorticketimg" src="css/ese-logo.png"/></div>
+				<div class="tickettext">
+					<div class="patron">Tutor</div>
+					<!-- <div class="room">&nbsp;</div> -->
+					<!-- <div class="time">&nbsp;</div> -->
+					<br />
+					<code><?php echo substr($keyData[$i][0], 0, 10) . "<br />" .  substr($keyData[$i][0], 10, 19); ?></code>
+				</div>
+				<div class="evalink">Tutoren-Eva unter https://ese.ifsr.de/2015/eva/tut</div>
+			</div>
+		<?php
 	}
 }
 ?>
