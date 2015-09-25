@@ -24,7 +24,7 @@
 #------------------------------------------------
 
 # -- Header ---
-headline; Headline; ESE 2014
+headline; Headline; ESE 2015
 
 # -- personal Code --
 # this is important and should stay so the student can identify himself to the system and receive his cup later on
@@ -38,19 +38,19 @@ legend; Legend;
 
 # -- Begin Questions --
 tutorRating; Question; Wie fandest du das Tutorium?
-meetingRating; Question; Wie hat dir der Kennenlernabend gefallen?
+meetingRating; Question; Wie hat dir der Kennenlernspieleabend gefallen?
 meetingSeminar; Question; Wie war das Seminargruppentreffen?
 speechCourseGuidance; Question; Wie war der Vortrag zur Studienberatung und -organisation?
 #speechMicrosoft; Question; Wie war der Microsoft-(MSDNAA)-Vortrag?
 paperChaseRating; Question; Wie fandest du die Schnitzeljagd?
-clubbingRating; Question; Wie hat dir die Clubwanderung gefallen?
+clubbingRating; Question; Wie hat dir die Clubtour gefallen?
 sppechCoditermination; Question; Wie war der Vortrag zur studentischen Mitbestimmung?
 speechAbroadSemester; Question; Wie war der Vortrag zum Auslandsstudium?
 speechTudias; Question; Wie war der Vortrag von TUDIAS?
 eseGameRating; Question; Wie hat dir das ESE-Spiel gefallen?
-eseGameEvening; Question; Wie fandest du den Spieleabend?
+#eseGameEvening; Question; Wie fandest du den Spieleabend?
 eseBreakfast; Question; Wie gefiel dir das Frühstück?
-#movieNightRating; Question; Wie hat dir der Kino-Abend gefallen?
+movieNightRating; Question; Wie hat dir der Kino-Abend gefallen?
 profIntroRating; Question; Wie war die Professorenvorstellung?
 #bowlingNightRating; Question; Wie war der Billiard/Bowling-Abend für dich?
 testRegisterRating; Question; Wie fandest du die Übungseinschreibung?

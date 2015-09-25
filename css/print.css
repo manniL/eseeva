@@ -12,47 +12,49 @@ body {
 }
 
 .ticket {
-	width: 6cm;
+	height: 4cm;
 /*	border: 1px dotted #ccc;*/
 	float: left;
 	padding: 3mm;
-	page-break-inside: avoid;
+	margin-left: 3mm;
+	min-width: 5.6cm;
+	/*page-break-inside: avoid;*/
 }
 
 .tickettext {
-	float: left;
-/*	width: 4.3cm; */
+	/*float: left;*/
 }
 
 .ticketimg {
 	float: right;
-	margin: 2mm 0 0 0;
+	margin: -1mm 0 0 0;
 	padding: 0px;
 }
 
 .ticketimg img {
-	height: 1.81cm;
+	height: 2cm;
 	margin: 0px;
 	padding: 0px;
 }
 
 .patron {
-	font-size: 16pt;
+	font-size: 26pt;
 	font-family:Haettenschweiler;
 }
 
 .room {
-	margin-top: 1mm;
+	margin-top: 4mm;
 }
 
 .time {
 	margin-bottom: 1mm;
+	margin-top: 3mm;
 }
 
 .room, .time {
-	font-size: 8pt;
-	width: 100%;
-	text-align: right;
+	font-size: 10pt;
+	width: 60%;
+	text-align: left;
 }
 
 .evalink {
