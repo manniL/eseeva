@@ -22,25 +22,25 @@
 	$keyData = ReadKeyFile($keyFile);
 	// the group names and rooms for Monday and their start times for Tuesday
 	$patrons = array(
-		array("Edsger W. Dijkstra", "INF/E005", "09:00"),
-		array("Kurt Gödel", "INF/E006", "09:10"),
-		array("Konrad Zuse", "INF/E007", "09:20"),
-		array("Donald E. Knuth", "INF/E008", "09:30"),
-		array("John von Neumann", "INF/E009", "09:40"),
-		array("Tim Berners-Lee", "INF/E010", "09:50"),
-		array("Alan Turing", "SCH/A216", "10:00"),
-		array("Ada Lovelace", "BAR/106", "10:10"),
-		array("Grace Hopper", "JAN/27", "10:20"),
-		array("Richard M. Stallman", "BER/105", "10:30"),
-		array("Linus Torvalds", "SCH/A01", "10:40"),
-		array("Noam Chomsky", "SCH/A315", "10:50"),
-		array("Christiane Floyd", "SCH/A215", "11:00"),
-		array("Stephen A. Cook", "INF/2101", "11:10"),
-		array("Ken Thompson", "SCH/A118", "11:20"),
-		array("Marc Andreesen", "SCH/A316", "11:30"),
+		array("Edsger W. Dijkstra", "APB/E005", "09:00"),
+		array("Kurt Gödel", "APB/E006", "09:10"),
+		array("Konrad Zuse", "APB/E007", "09:20"),
+		array("Donald E. Knuth", "APB/E010", "09:30"),
+		array("John von Neumann", "APB/E009", "09:40"),
+		array("Tim Berners-Lee", "APB/E008", "09:50"),
+		array("Alan Turing", "SCH/A214", "10:00"),
+		array("Ada Lovelace", "SCH/A252", "10:10"),
+		array("Grace Hopper", "SCH/A185", "10:20"),
+		array("Richard M. Stallman", "SCH/A184", "10:30"),
+		array("Linus Torvalds", "SCH/A419", "10:40"),
+		array("Noam Chomsky", "MER/03", "10:50"),
+		array("Christiane Floyd", "MER/01", "11:00"),
+		array("Stephen A. Cook", "GER/39", "11:10"),
+		array("Ken Thompson", "GER/09", "11:20"),
+		array("Marc Andreesen", "GER/54", "11:30"),
 		// we need slightly more Master tickets
-		array("Master Inf/MInf", "INF/E023", ""),
-		array("Master Inf/MInf", "INF/E023", "")
+		array("Master Inf/MInf", "APB/E023", ""),
+		array("Master Inf/MInf", "APB/E023", "")
 	);
 
 ?>
@@ -59,10 +59,10 @@ for ($i = 0; $i < count($keyData); $i++)
 		$pno = $i%(count($patrons));
 		?>
 			<div class="ticket">
-				<div class="patron">".$patrons[$pno][0]."</div>
+				<div class="patron"><?php echo $patrons[$pno][0] ?></div>
 				<div class="tickettext">
 					<div class="ticketimg"><img src="css/ese-logo.png"/></div>
-					<div class="room">Tutorium in <br><strong>".$patrons[$pno][1]."</strong></div>
+					<div class="room">Tutorium in <br><strong><?php echo $patrons[$pno][1] ?></strong></div>
 					<div class="time">
 						<?php
 							// don't display start date if there is none (Master case)
