@@ -5,6 +5,7 @@
 \usepackage{ifthen}
 \usepackage{csvsimple}
 \usepackage{graphicx}
+\usepackage{xcolor}
 \usepackage{url}
 
 \usepackage{fontspec}
@@ -17,12 +18,15 @@
 
 \newcommand{\bm}[1]{%
 	\begin{minipage}[t][\textheight]{.16\textwidth}%
-		\includegraphics[width=\textwidth]{css/tasse.png}\\[-.5cm]
+		\includegraphics[width=\textwidth]{css/tasse.png}\\[-.25cm]
+		\color{bmcol}%
 		\begin{center}
 			\headfont\Huge
-			Hol' dir\\deine\\ ESE-Tasse!
+			\addfontfeature{LetterSpace=14.5}\fontsize{38}{0}\selectfont HOL\hspace{.45em}DIR\\[.15cm]
+			\addfontfeature{LetterSpace=20.0}\fontsize{48}{0}\selectfont DEINE\\[.175cm]
+			\addfontfeature{LetterSpace=5.25}\fontsize{31}{0}\selectfont ESE-TASSE!
 		\end{center}
-		\vspace*{.5cm}
+		\vspace*{.25cm}
 		
 		Beantworte uns einfach kurz ein paar Fragen über die ESE unter:
 		\begin{center}
@@ -51,9 +55,20 @@
 
 \begin{document}
 
-\csvreader
-	[separator=semicolon]%
-	{keys/Keys.csv}{1=\nr,2=\key,3=\status}%
-	{\bm{\key}}% We could even filter for status=issued here :O
+%\csvreader
+%	[separator=semicolon]%
+%	{keys/Keys.csv}{1=\nr,2=\key,3=\status}%
+%	{\bm{\key}}% We could even filter for status=issued here :O
+
+\definecolor{bmcol}{gray}{0.0}
+\bm{XXXX-XXXX-XXXX-XXXX}
+\definecolor{bmcol}{gray}{0.17}
+\bm{XXXX-XXXX-XXXX-XXXX}
+\definecolor{bmcol}{gray}{0.3}
+\bm{XXXX-XXXX-XXXX-XXXX}
+\definecolor{bmcol}{gray}{0.4}
+\bm{XXXX-XXXX-XXXX-XXXX}
+\definecolor{bmcol}{gray}{0.5}
+\bm{XXXX-XXXX-XXXX-XXXX}
 
 \end{document}
