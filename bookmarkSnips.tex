@@ -12,6 +12,9 @@
 \setmainfont{PT Sans}
 \newfontfamily\headfont{Haettenschweiler}
 
+% this is essentially useless now
+\definecolor{bmcol}{gray}{0.0}
+
 % lol, hacks
 %\usepackage{atbegshi}% http://ctan.org/pkg/atbegshi
 %\AtBeginDocument{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
@@ -55,20 +58,9 @@
 
 \begin{document}
 
-%\csvreader
-%	[separator=semicolon]%
-%	{keys/Keys.csv}{1=\nr,2=\key,3=\status}%
-%	{\bm{\key}}% We could even filter for status=issued here :O
-
-\definecolor{bmcol}{gray}{0.0}
-\bm{XXXX-XXXX-XXXX-XXXX}
-\definecolor{bmcol}{gray}{0.17}
-\bm{XXXX-XXXX-XXXX-XXXX}
-\definecolor{bmcol}{gray}{0.3}
-\bm{XXXX-XXXX-XXXX-XXXX}
-\definecolor{bmcol}{gray}{0.4}
-\bm{XXXX-XXXX-XXXX-XXXX}
-\definecolor{bmcol}{gray}{0.5}
-\bm{XXXX-XXXX-XXXX-XXXX}
+\csvreader
+	[separator=semicolon]%
+	{keys/Keys.csv}{1=\nr,2=\key,3=\status}%
+	{\bm{\key}}% We could even filter for status=issued here :O
 
 \end{document}
