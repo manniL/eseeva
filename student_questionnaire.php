@@ -47,7 +47,10 @@
 			if (WriteLogFile(STUDENTLOGFILE, $questionData, $tutorData, $commentData))
 			{
 				SetKeyState($keyData, $_POST["code"], KEYSTATE_ACTIVATED);
-				WriteKeyFile(KEYFILE, $keyData);
+				if (!WriteKeyFile(KEYFILE, $keyData))
+				{
+					$error = 1;
+				}
 			}
 			// otherwise set the error flag
 			else

@@ -267,10 +267,10 @@
 	}
 
 	/**
-	 * Echos a new division with a labelled text box and switching row styles.
+	 * Echos a new division with a dropdown menu.
 	 *
 	 * @param string $label The label that should be displayed for the dropdown menu.
-	 * @param string $id The unique id that is used to identify the dropdownmenu.
+	 * @param string $id The unique id that is used to identify the dropdown menu.
 	 * @param string $value The options that should be displayed within the dropdown menu.
 	 * 
 	 */

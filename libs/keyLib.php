@@ -125,7 +125,14 @@
 		//else
 		//	echo "<script type='text/javascript'>alert('file written');</script>";
 		fclose($handle);
-		return true;
+		if ($res) 
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 	/**
 	 * Get the current state of the specified key which will be one of the defines
