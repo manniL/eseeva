@@ -37,6 +37,7 @@
 	session_start();
 	$formState = STATE_ACCESS_SUCCESSFULL;
 	$keyCode = "";
+	$keyData = ReadKeyFile(KEYFILE);
 	
 	// if the variable is set, the form has been posted to itself
 	// if the submission ids of the post and the form don't match, the
@@ -52,7 +53,7 @@
 		{
 			// if a key code has been entered, get the state of that key
 			$keyCode = $_POST["keyCode"];
-			$keyData = ReadKeyFile(KEYFILE);
+			//$keyData = ReadKeyFile(KEYFILE);
 			// if no action was performed on the entered key, simply display its state
 			if (!isset($_POST["action"]))
 				$formState = KeyStateToFormState(GetKeyState($keyData, $_POST["keyCode"]));
@@ -107,14 +108,14 @@
 						case STATE_ACTION_ACTIVATED:
 						case STATE_ACTION_USED:
 						case STATE_ACTION_NEWCODE:
-							CreateKeyCodeBox("", true);
+							CreateKeyDropDownBox("");
 							break;
 						// if previously entered key was not found or the action that should
 						// be performed has been failed, just display the key code box with
 						// previously entered value
 						case STATE_KEY_NONEXISTENT:
 						case STATE_ACTION_FAILED:
-							CreateKeyCodeBox($keyCode, true);
+							CreateKeyDropDownBox($keyCode);
 							break;
 						// if an existing key has been entered, display the readonly key code box
 						// and all options that can be performed on the key
@@ -187,6 +188,31 @@
 		echo "		<input class=\"form-control\" type=\"text\" id=\"keyCode\" name=\"keyCode\" value=\"" . $keyCode . "\" required";
 		if (!$enabled)
 			echo " readonly";
+		echo "/>\n";
+		echo "	</div>\n";
+		echo "</div>\n";
+	}
+	/**
+	 * Echos a drop down box with all keys.
+	 *
+	 * @param string $keyCode The key that should be displayed in the box.
+	 */
+	function CreateKeyDropDownBox($keyCode)
+	{
+		CreateRowHeader();
+		echo "	<div class=\"col-6\">\n";
+		echo "		<p class=\"lead\">ESE Code:</p>\n";
+		echo "	</div>\n";
+		echo "	<div class=\"col-6\">\n";
+		echo "		<select class=\"form-control\" id=\"keyCode\" name=\"keyCode\" required>\n";
+		foreach ($keyData as $key => $value) {
+			echo "			<option value=\"". $value[1] ."\" ";
+			if ($keyCode != "" && &keyCode == &value[1])
+				echo "selected=\"selected\" ";
+			echo ">" $value[1] "</option>\n";
+		}
+		echo "      </select>"
+		//echo "		<input class=\"form-control\" type=\"text\" id=\"keyCode\" name=\"keyCode\" value=\"" . $keyCode . "\" required";
 		echo "/>\n";
 		echo "	</div>\n";
 		echo "</div>\n";
