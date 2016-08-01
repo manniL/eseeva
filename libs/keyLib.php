@@ -87,6 +87,7 @@
 			return null;
 		$data = fread($handle, filesize($fileName));
 		$lines = explode("\n", $data);
+		fclose($handle);
 		$keyData = array();
 		for ($i = 1; $i < count($lines); $i++)
 		{
@@ -118,7 +119,11 @@
 		for ($i = 0; $i < $count; $i++)
 			$data = $data . $i . ";" . $keyData[$i][0] . ";" . $keyData[$i][1] . "\n";
 		$data = $data . $count . ";" . $keyData[$count][0] . ";" . $keyData[$count][1];
+
+		//use exclusive lock for writing
+		flock($handle, LOCK_EX);
 		$res = fwrite($handle, $data);
+		flock($handle, LOCK_UN);
 		// debug Code
 		//if ($res == false)
 		//	echo "<script type='text/javascript'>alert('file not written');</script>";

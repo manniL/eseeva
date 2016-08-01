@@ -9,8 +9,8 @@
 //               and tutors.
 //============================================================================
 
-	define ("STUDENTLOGFILE", "logs/ESE2013_studentLog.txt");
-	define ("TUTORLOGFILE", "logs/ESE2013_tutorLog.txt");
+	define ("STUDENTLOGFILE", "logs/ESE_studentLog.txt");
+	define ("TUTORLOGFILE", "logs/ESE_tutorLog.txt");
 	
 	/**
 	 * Reads all question data out of a provided log file array that has been split by new lines.
@@ -178,6 +178,7 @@
 		// otherwise read the file and split the string at each new line
 		$fileData = fread($handle, $length);
 		$lines = explode("\n", $fileData);
+		fclose($handle);
 		// begin parsing of the file, the beginning is the second line, because the
 		// first should contains the disclaimer
 		$index = 1;
@@ -231,7 +232,10 @@
 			// each comment is escapd by a new line containing three tilde characters
 			$fileData = $fileData . "\n" . $comment . "\n~~~";
 		// write the generated data to the file and close it
+		// use exclusive lock
+		flock($handle, LOCK_EX);
 		fwrite($handle, $fileData);
+		flock($handle, LOCK_UN);
 		fclose($handle);
 		return true;
 	}
