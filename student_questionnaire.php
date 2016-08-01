@@ -83,7 +83,7 @@
 					CreateQuestionnaireElement("comment", $questionnaire, $_POST);
 				?>
 				<div class="row">
-					<input class="form-control" type="submit" name="submit" value="Absenden"/>
+					<input class="form-control btn-success" type="submit" name="submit" value="Absenden"/>
 				</div>
 			</form>
 		</div>

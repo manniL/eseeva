@@ -128,9 +128,9 @@
 					}
 					
 					CreateRowHeader();
-					echo "  <div class=\"col-5\">\n    <input type=\"submit\" class=\"form-control\" name=\"changesConfirm\" value=\"Confirm Changes\"/>\n  </div>\n";
+					echo "  <div class=\"col-5\">\n    <input type=\"submit\" class=\"form-control btn-success\" name=\"changesConfirm\" value=\"Confirm Changes\"/>\n  </div>\n";
 					echo "  <div class=\"col-2\"></div>\n";
-					echo "  <div class=\"col-5\">\n    <input type=\"submit\" class=\"form-control\" name=\"changesDiscard\" value=\"Discard Changes\"/>\n  </div>\n";
+					echo "  <div class=\"col-5\">\n    <input type=\"submit\" class=\"form-control btn-danger\" name=\"changesDiscard\" value=\"Discard Changes\"/>\n  </div>\n";
 					echo "</div>\n";
 					
 					// Hidden input with previously generated id - used for preventing double posts
@@ -144,9 +144,9 @@
 					CreateTextBox("Key file name", "keyFile", $keyFile);
 					
 					CreateRowHeader();
-					echo "  <div class=\"col-5\">\n    <input type=\"submit\" class=\"form-control\" name=\"keyGenNew\" value=\"Generate New Key File\"/>\n  </div>\n";
+					echo "  <div class=\"col-5\">\n    <input type=\"submit\" class=\"form-control btn-success\" name=\"keyGenNew\" value=\"Generate New Key File\"/>\n  </div>\n";
 					echo "  <div class=\"col-2\"></div>\n";
-					echo "  <div class=\"col-5\">\n    <input type=\"submit\" class=\"form-control\" name=\"keyGenAppend\" value=\"Append existing Key File\"/>\n  </div>\n";
+					echo "  <div class=\"col-5\">\n    <input type=\"submit\" class=\"form-control btn-warning\" name=\"keyGenAppend\" value=\"Append existing Key File\"/>\n  </div>\n";
 					echo "</div>\n";
 					
 					// Hidden input with previously generated id - used for preventing double posts

@@ -95,7 +95,6 @@
 					CreateHeadline("Key Control Panel");
 					CreateInfoBox($formState);
 					CreateAccessBox($formState);
-          echo $formState;
 					
 					switch ($formState)
 					{
@@ -138,7 +137,7 @@
 					}
 				?>
 				<div class="row">
-					<input class="form-control" type="submit" name="submit" value="Absenden"/>
+					<input class="form-control btn-success" type="submit" name="submit" value="Absenden"/>
 				</div>
 				<input type="hidden" value="<?php /*Hidden input with previously generated id - used for preventing double posts*/ echo $_SESSION['submissionId'];?>" name="submissionId"> 
 			</form>

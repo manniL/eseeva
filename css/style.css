@@ -19,8 +19,9 @@ input[type="checkbox"]
 
 input[type="submit"]
 {
-	background-color:#E0E0FF;
-	font-size:16pt;
+	font-size: 14pt;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 label
