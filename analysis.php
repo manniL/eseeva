@@ -10,7 +10,7 @@
 	include_once 'libs/formLib.php';
 	include_once 'libs/questionnaireLib.php';
 	include_once 'libs/loggingLib.php';
-  include_once 'libs/chartLib.php';
+    include_once 'libs/chartLib.php';
 	
 	// variables for the log data
 	$questionData;
@@ -62,43 +62,19 @@
 						echo "  </div>\n";
 						echo "	<div class=\"col-sm-4\">\n";
 						echo "    <div class=\"row\">\n";
+                        
+                        $width = 800;
+                        $height = 300;
             
-            $width = 800;
-            $height = 300;
-            
-            //find max of answers to set max of x-axis, max of y-axis is always seven, because there are six possibilities to answer
-            $values = $question;
-            array_shift($values);
-            $maxX = max($values)+1;
-            $maxY = 7;
-            
-            $img = CreateImage($width, $height);
- 
-						// the amount of answers for the different options and a nice group of bars
-						for ($i = 1; $i < 7; $i++)
-            {
-							echo "      <div class=\"col-2\"><p class=\"lead center\">" . $question[$i] . "</p></div>\n";
-			  $green = 150*($question[$i]/$maxX) + 40;
-              $color = ImageColorAllocate($img, 0.57 * $green, $green, 0.45 * $green);
-              DrawBar($img, $question[$i], $maxX, $i+1, $maxY,  $question[$i], $color);
-            }
-            
-            //finish image and save it
-            $caption = array("N/A","--","-", "0", "+", "++");
-            DrawCoords($img, $maxX, $maxY, $caption);
-            
-            $file=str_replace("?", "", str_replace(" ", "", $question[0]));
-            
-            ImagePNG($img,"question".$file.".png");
-            ImageDestroy($img);
+                        $file = CreateQuestionBar($width, $height, $question);
             
 						echo "    </div>\n";
 						echo "  </div>\n";
-            echo "  <div class=\"col-sm-3\">\n";
-            echo "  </div>\n";
-            echo "  <div class=\"col-sm-9\">\n";
-            echo "    <img src=\"question".$file.".png\" class=\"lead center\">";
-            echo "  </div>\n";
+                        echo "  <div class=\"col-sm-3\">\n";
+                        echo "  </div>\n";
+                        echo "  <div class=\"col-sm-9\">\n";
+                        echo "    <img src=\"".$file."\" class=\"lead center\">";
+                        echo "  </div>\n";
 						echo "</div>\n"; 
 					}
 				}
@@ -126,39 +102,18 @@
 						echo "	<div class=\"col-sm-4\">\n";
 						echo "    <div class=\"row\">\n";
             
-            $width = 800;
-            $height = 300;
+                        $width = 800;
+                        $height = 300;
             
-            //find max of answers to set max of x-axis, max of y-axis is always seven, because there are six possibilities to answer
-            $maxX = max($tutor)+1;
-            $maxY = 7;
-            
-            $img = CreateImage($width, $height);
-            
-						// the amount of answers for the different options and a picture 
-						for ($i = 0; $i < 6; $i++)
-            {
-							echo "      <div class=\"col-2\"><p class=\"lead center\">" . $tutor[$i] . "</p></div>\n";
-			  $green = 150*($tutor[$i]/$maxX) + 40;
-              $color = ImageColorAllocate($img, 0.54 * $green, $green, 0.45 * $green);
-              DrawBar($img, $tutor[$i], $maxX,  $i+2, $maxY,  $tutor[$i], $color);
-            }
-            
-            //finish image and save it
-            $caption = array("N/A","--","-", "0", "+", "++");
-            DrawCoords($img, $maxX, $maxY, $caption);
-            
-            $file = str_replace(" ", "", $tutorName);
-            ImagePNG($img,"tutor".$file.".png");
-            ImageDestroy($img);
+                        $file = CreateTutorBar($width, $height, $tutorName, $tutor);
             
 						echo "    </div>\n";
 						echo "  </div>\n";
-            echo "  <div class=\"col-sm-3\">\n";
-            echo "  </div>\n";
-            echo "  <div class=\"col-sm-9\">\n";
-            echo "    <img src=\"tutor".$file.".png\" class=\"lead center\">";
-            echo "  </div>\n";
+                        echo "  <div class=\"col-sm-3\">\n";
+                        echo "  </div>\n";
+                        echo "  <div class=\"col-sm-9\">\n";
+                        echo "    <img src=\"".$file."\" class=\"lead center\">";
+                        echo "  </div>\n";
 						echo "</div>\n";
             
 					}

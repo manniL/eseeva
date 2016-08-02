@@ -1,12 +1,20 @@
 <?php
-//============================================================================
+//===============================================================================
 // Name        : chartLib.php
 // Author      : Lucas Woltmann
 // Version     : 1.0
 // Date        : 08-2013
 // Description : Provides functions for creating beautiful and astonishing charts
-//============================================================================
+//===============================================================================
 
+/**
+ * Draws x- and y-axis onto image.
+ *
+ * @param image $image The image to draw on.
+ * @param integer $XLength Max x value.
+ * @param integer $YLength Max y value.
+ * @param array $values Captions for y-axis.
+ */
 function DrawCoords($image, $XLength, $YLength, $values)
 {
   $width = ImageSX($image);
@@ -79,8 +87,18 @@ function DrawCoords($image, $XLength, $YLength, $values)
     $index++;
   }
 }
-
-function DrawBar($image, $length, $maxOfX ,$position, $maxOfY, $value, $color)
+/**
+ * Draws a bar onto the image.
+ *
+ * @param image $image The image to draw on.
+ * @param integer $length Value of the bar.
+ * @param integer $maxOfX Max x value.
+ * @param integer $position Index of the column on the axis.
+ * @param integer $maxOfY Max y value.
+ * @param string $value Label for the bar.
+ * @param color $color Well, have a guess!
+ */
+function DrawBar($image, $length, $maxOfX, $position, $maxOfY, $value, $color)
 {
   $imgWidth = ImageSX($image);
   $imgHeight = ImageSY($image);
@@ -103,7 +121,12 @@ function DrawBar($image, $length, $maxOfX ,$position, $maxOfY, $value, $color)
   ImageFilledRectangle($image, $left, $upper, $right, $upper-$Yoffset, $color);
   ImageString($image, 4, $right+($Xoffset/3), $upper-$Yoffset*0.7, $value, $black);
 }
-
+/**
+ * Creates and returns a new blank image.
+ *
+ * @param integer $width The desired width of the image.
+ * @param integer $height The desired height of the image.
+ */
 function CreateImage($width, $height)
 {
   $image = ImageCreate($width, $height);
@@ -113,5 +136,80 @@ function CreateImage($width, $height)
   ImageSaveAlpha($image, TRUE);
   
   return $image;
+}
+/**
+ * Creates a new bar plot for the given question data. Returns name of saved png file.
+ *
+ * @param integer $width The desired width of the image.
+ * @param integer $height The desired height of the image.
+ * @param array $question The question data.
+ */
+function CreateQuestionBar($width, $height, $question)
+{
+  //find max of answers to set max of x-axis, max of y-axis is always seven, because there are six possibilities to answer
+  $values = $question;
+  array_shift($values);
+  $maxX = max($values)+1;
+  $maxY = 7;
+  
+  $img = CreateImage($width, $height);
+
+  // the amount of answers for the different options and a nice group of bars
+  for ($i = 1; $i < 7; $i++)
+  {
+    echo "      <div class=\"col-2\"><p class=\"lead center\">" . $question[$i] . "</p></div>\n";
+    $green = 150*($question[$i]/$maxX) + 40;
+    $color = ImageColorAllocate($img, 0.57 * $green, $green, 0.45 * $green);
+    DrawBar($img, $question[$i], $maxX, $i+1, $maxY,  $question[$i], $color);
+  }
+  
+  //finish image and save it
+  $caption = array("N/A","--","-", "0", "+", "++");
+  DrawCoords($img, $maxX, $maxY, $caption);
+  
+  $file = str_replace("?", "", str_replace(" ", "", $question[0]));
+  $file = "question".$file.".png";
+  
+  ImagePNG($img, $file);
+  ImageDestroy($img);
+
+  return $file;
+}
+/**
+ * Creates a new bar plot for the given tutor data. Returns name of saved png file.
+ *
+ * @param integer $width The desired width of the image.
+ * @param integer $height The desired height of the image.
+ * @param string $title The file name of the image. (Should be tutor's name)
+ * @param array $tutor The tutor data.
+ */
+function CreateTutorBar($width, $height, $title, $tutor)
+{
+  //find max of answers to set max of x-axis, max of y-axis is always seven, because there are six possibilities to answer
+  $maxX = max($tutor)+1;
+  $maxY = 7;
+  
+  $img = CreateImage($width, $height);
+  
+  // the amount of answers for the different options and a picture 
+  for ($i = 0; $i < 6; $i++)
+  {
+    echo "      <div class=\"col-2\"><p class=\"lead center\">" . $tutor[$i] . "</p></div>\n";
+    $green = 150*($tutor[$i]/$maxX) + 40;
+    $color = ImageColorAllocate($img, 0.54 * $green, $green, 0.45 * $green);
+    DrawBar($img, $tutor[$i], $maxX,  $i+2, $maxY,  $tutor[$i], $color);
+  }
+  
+  //finish image and save it
+  $caption = array("N/A","--","-", "0", "+", "++");
+  DrawCoords($img, $maxX, $maxY, $caption);
+  
+  $file = str_replace(" ", "", $title);
+  $file = "tutor".$file.".png";
+
+  ImagePNG($img, $file);
+  ImageDestroy($img);
+
+  return $file;
 }
 ?>
