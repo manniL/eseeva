@@ -35,7 +35,7 @@
 	// if the user refreshes the page, it will default to the
 	// access code screen
 	session_start();
-	$formState = STATE_ACCESS_SUCCESSFULL;
+	$formState = STATE_ACTION_NEWCODE;
 	$keyCode = "";
 	$keyData = ReadKeyFile(KEYFILE);
 	
@@ -75,7 +75,7 @@
 		}
 		// if the access code was correct and no code was entered
 		else
-			$formState = STATE_ACCESS_SUCCESSFULL;
+			$formState = STATE_ACTION_NEWCODE;
 	}
 	// generate a new submission id that is used within the form to prevent double posts
 	$_SESSION["submissionId"] = rand();
@@ -96,7 +96,6 @@
 					CreateHeadline("Key Control Panel");
 					CreateInfoBox($formState);
 					CreateAccessBox($formState);
-          echo $formState;
 					
 					switch ($formState)
 					{
@@ -108,14 +107,14 @@
 						case STATE_ACTION_ACTIVATED:
 						case STATE_ACTION_USED:
 						case STATE_ACTION_NEWCODE:
-							CreateKeyDropDownBox("");
+							CreateKeyDropDownBox($keyData, "");
 							break;
 						// if previously entered key was not found or the action that should
 						// be performed has been failed, just display the key code box with
 						// previously entered value
 						case STATE_KEY_NONEXISTENT:
 						case STATE_ACTION_FAILED:
-							CreateKeyDropDownBox($keyCode);
+							CreateKeyDropDownBox($keyData, $keyCode);
 							break;
 						// if an existing key has been entered, display the readonly key code box
 						// and all options that can be performed on the key
@@ -139,7 +138,7 @@
 					}
 				?>
 				<div class="row">
-					<input class="form-control" type="submit" name="submit" value="Absenden"/>
+					<input class="form-control btn-success" type="submit" name="submit" value="Absenden"/>
 				</div>
 				<input type="hidden" value="<?php /*Hidden input with previously generated id - used for preventing double posts*/ echo $_SESSION['submissionId'];?>" name="submissionId"> 
 			</form>
@@ -197,7 +196,7 @@
 	 *
 	 * @param string $keyCode The key that should be displayed in the box.
 	 */
-	function CreateKeyDropDownBox($keyCode)
+	function CreateKeyDropDownBox($keyData, $keyCode)
 	{
 		CreateRowHeader();
 		echo "	<div class=\"col-6\">\n";
@@ -206,14 +205,14 @@
 		echo "	<div class=\"col-6\">\n";
 		echo "		<select class=\"form-control\" id=\"keyCode\" name=\"keyCode\" required>\n";
 		foreach ($keyData as $key => $value) {
-			echo "			<option value=\"". $value[1] ."\" ";
-			if ($keyCode != "" && &keyCode == &value[1])
-				echo "selected=\"selected\" ";
-			echo ">" $value[1] "</option>\n";
+			echo "			<option value=\"". $value[0] ."\" ";
+			if ($keyCode != "" && $keyCode == $value[0]) {
+				echo "selected=\"selected\"";
+			}
+			echo ">".$value[0]."</option>\n";
 		}
-		echo "      </select>"
+		echo "      </select>\n";
 		//echo "		<input class=\"form-control\" type=\"text\" id=\"keyCode\" name=\"keyCode\" value=\"" . $keyCode . "\" required";
-		echo "/>\n";
 		echo "	</div>\n";
 		echo "</div>\n";
 	}
@@ -261,7 +260,7 @@
 			case STATE_ACTION_ISSUED: CreateMessageBox(MSG_SUCCESS, "ESE Code Status geändert:", "Der Schlüssel wurde erfolgreich auf den Status <strong>Ausgegeben</strong> gesetzt. Bitte gib einen ESE Code ein, welchen du überprüfen oder verändern möchtest."); break;
 			case STATE_ACTION_ACTIVATED: CreateMessageBox(MSG_SUCCESS, "ESE Code Status geändert:", "Der Schlüssel wurde erfolgreich auf den Status <strong>Fragebogen ausgefüllt</strong> gesetzt. Bitte gib einen ESE Code ein, welchen du überprüfen oder verändern möchtest."); break;
 			case STATE_ACTION_USED: CreateMessageBox(MSG_SUCCESS, "ESE Code Status geändert:", "Der Schlüssel wurde erfolgreich auf den Status <strong>Eingelöst</strong> gesetzt. Bitte gib einen ESE Code ein, welchen du überprüfen oder verändern möchtest."); break;
-			case STATE_ACTION_NEWCODE: CreateMessageBox(MSG_INFO, "ESE Code eingeben:", "Bitte gib den ESE Code ein, welchen du überprüfen oder verändern möchtest."); break;
+			case STATE_ACTION_NEWCODE: CreateMessageBox(MSG_INFO, "ESE Code auswählen:", "Bitte wähle den ESE Code aus, welchen du überprüfen oder verändern möchtest."); break;
 			case STATE_ACTION_FAILED: CreateMessageBox(MSG_DANGER, "Achtung:", "Der Status des angegebenen Schlüssels konnte <strong>nicht geändert</strong> werden! Bitte überprüfe deine Eingabe."); break;
 		}
 	}
