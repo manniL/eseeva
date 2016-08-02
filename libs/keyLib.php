@@ -109,7 +109,7 @@
 	{
 		if (!isset($fileName) || !isset($keyData))
 			return false;
-		$handle = fopen($fileName, 'w+');
+		$handle = fopen($fileName, 'c');
 		if ($handle == null)
 			return false;
 		// debug code
@@ -122,7 +122,9 @@
 
 		//use exclusive lock for writing
 		flock($handle, LOCK_EX);
+		ftruncate($handle, 0);
 		$res = fwrite($handle, $data);
+		fflush($handle);
 		flock($handle, LOCK_UN);
 		// debug Code
 		//if ($res == false)

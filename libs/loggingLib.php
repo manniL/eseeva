@@ -200,7 +200,7 @@
 	 */
 	function WriteLogFile($fileName, &$questionData, &$tutorData, &$commentData)
 	{
-		$handle = fopen($fileName, 'w');
+		$handle = fopen($fileName, 'c');
 		if (!$handle)
 			return false;
 		// write disclaimer and question data block identifier
@@ -234,7 +234,9 @@
 		// write the generated data to the file and close it
 		// use exclusive lock
 		flock($handle, LOCK_EX);
+		ftruncate($handle, 0);
 		fwrite($handle, $fileData);
+		fflush($handle);
 		flock($handle, LOCK_UN);
 		fclose($handle);
 		return true;
