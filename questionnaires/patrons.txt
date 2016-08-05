@@ -1,18 +1,21 @@
-Nicht am Tutorium teilgenommen
-Edsger W. Dijkstra
-Kurt Gödel
-Konrad Zuse
-Donald E. Knuth
-John von Neumann
-Tim Berners-Lee
-Alan Turing
-Ada Lovelace
-Grace Hopper
-Richard M. Stallman
-Linus Torvalds
-Noam Chomsky
-Christiane Floyd
-Stephen A. Cook
-Ken Thompson
-Marc Andreesen
-Master Inf/MInf
+# Key (Name); Place; Time
+# Time can be left "" for special cases 
+Nicht am Tutorium teilgenommen;;
+Edsger W. Dijkstra; APB/E005; 09:00
+Kurt Gödel; APB/E006; 09:10
+Konrad Zuse; APB/E007; 09:20
+Tim Berners-Lee; APB/E008; 09:30
+John von Neumann; APB/E009; 09:40
+Donald E. Knuth; APB/E010; 09:50
+Alan Turing; SCH/A214; 10:00
+Ada Lovelace; SCH/A252; 10:10
+Grace Hopper; SCH/A185; 10:20
+Richard M. Stallman; SCH/A184; 10:30
+Linus Torvalds; SCH/A419; 10:40
+Noam Chomsky; MER/03; 10:50
+Christiane Floyd; MER/01; 11:00
+Stephen A. Cook; GER/39; 11:10
+Ken Thompson; GER/09; 11:20
+Marc Andreesen; GER/54; 11:30
+Master Inf/MInf; APB/E023; 
+Master Inf/MInf; APB/E023; 

@@ -93,9 +93,13 @@
 		$lines = explode("\n", $rawData);
 		$data = array();
 		for ($i = 0; $i < count($lines); $i++)
-			if(trim($lines[$i]) != "")
-				$data[trim($lines[$i])] = trim($lines[$i]);
-
+		{
+			if(trim($lines[$i]) != "" && trim($lines[$i])[0] != "#")
+			{
+				$tmp = explode(";", trim($lines[$i]));
+				$data[$tmp[0]] = $tmp;
+			}
+		}
 		return $data;
 	}
 ?>

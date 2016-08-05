@@ -77,7 +77,7 @@
 					else
 						CreateKeyMessageBox($keyState);
 					CreateQuestionnaireElement("code", $questionnaire, $_POST);
-					CreateQuestionnaireElement("tutorName", $questionnaire, $patrons);
+					CreateQuestionnaireElement("tutorName", $questionnaire, array_keys($patrons));
 					CreateQuestionnaireElement("legend", $questionnaire, $_POST);
 					CreateAllQuestionElements($questionnaire, $_POST);
 					CreateQuestionnaireElement("comment", $questionnaire, $_POST);

@@ -57,4 +57,4 @@ Just go to the *analysis.php* site to see the results. Go to *analysisTut.php* t
 * **questionnaires/** Directory for all questionnaire files.
     * **student_questionnaire.txt**: Questionnaire file for students.      
     * **tutor_questionnaire.txt**: Questionnaire file for tutors.
-    * **patrons.txt**: file for the names of the patrons. 
+    * **patrons.txt**: File for the names of the patrons and information about their tutorial session. 
