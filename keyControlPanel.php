@@ -42,7 +42,7 @@
 	// if the variable is set, the form has been posted to itself
 	// if the submission ids of the post and the form don't match, the
 	// user has refreshed the site and thus its reseted to the default state
-	if (isset($_POST["submit"]) && isset($_SESSION["submissionId"]) && $_SESSION["submissionId"] == $_POST["submissionId"])
+	if (isset($_POST["submit"]) && isset($_SESSION["submissionId"]) && ($_SESSION["submissionId"] == $_POST["submissionId"]))
 	{
 		// check if the access code was correct
 		/*if ($_POST["accessCode"] != ACCESS_CODE)
@@ -95,7 +95,7 @@
 				<?php
 					CreateHeadline("Key Control Panel");
 					CreateInfoBox($formState);
-					CreateAccessBox($formState);
+					//CreateAccessBox($formState);
 					
 					switch ($formState)
 					{

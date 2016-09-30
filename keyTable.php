@@ -23,7 +23,7 @@
 	// if the submission ids of the post and the form don't match, the
 	// user has refreshed the site and thus its reseted to the default state
 
-	if (isset($_SESSION["submissionId"]) && $_SESSION["submissionId"] == $_POST["submissionId"])
+	if (isset($_SESSION["submissionId"]) && ($_SESSION["submissionId"] == $_POST["submissionId"]))
 	{
 		if (isset($_POST["changesConfirm"]))
 		{
