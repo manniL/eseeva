@@ -48,7 +48,7 @@ sppechCoditermination; Question; Wie war der Vortrag zur studentischen Mitbestim
 speechAbroadSemester; Question; Wie war der Vortrag zum Auslandsstudium?
 speechTudias; Question; Wie war der Vortrag von TUDIAS?
 eseGameRating; Question; Wie hat dir das ESE-Spiel gefallen?
-#eseGameEvening; Question; Wie fandest du den Spieleabend?
+eseGameEvening; Question; Wie fandest du den Spieleabend?
 eseBreakfast; Question; Wie gefiel dir das Frühstück?
 movieNightRating; Question; Wie hat dir der Kino-Abend gefallen?
 profIntroRating; Question; Wie war die Professorenvorstellung?
