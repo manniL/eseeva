@@ -68,7 +68,7 @@
 				<?php
 					CreateQuestionnaireElement("headline", $questionnaire, $_POST);
 					if ($error)
-						CreateMessageBox(MSG_DANGER, "Achtung:", "Deine Evaluation konnte aufgrund eines internen Fehlers leider nicht erfolgreich bearbeitet werden.<br/>Bitte versuch es später nocheinmal oder wende dich an einen der Verantwortlichen.");
+						CreateMessageBox(MSG_DANGER, "Achtung:", "Deine Evaluation konnte aufgrund eines internen Fehlers leider nicht erfolgreich bearbeitet werden.<br/>Bitte versuch es später noch einmal oder wende dich an einen der Verantwortlichen.");
 					else
 						CreateKeyMessageBox($keyState);
 					CreateQuestionnaireElement("code", $questionnaire, $_POST);
